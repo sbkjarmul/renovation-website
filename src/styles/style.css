@@ -33,3 +33,19 @@ section {
   width: 100%;
   object-fit: cover;
 }
+
+.carousel-indicators {
+  margin-bottom: 3rem;
+}
+
+.carousel-indicators button {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 100%;
+  background: rgba(255,255,255,.5);
+  margin: 4px !important;
+}
+
+.carousel-indicators .active {
+  background-color: #FFCE00;
+}
