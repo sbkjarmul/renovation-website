@@ -49,3 +49,21 @@ section {
 .carousel-indicators .active {
   background-color: #FFCE00;
 }
+
+.new-home {
+  font-family: 'Poppis', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFCE00;
+  height: 30vh;
+}
+
+.new-home h1 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.new-home h1 span {
+  font-weight: 700;
+}
