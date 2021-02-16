@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+#main-page {
+  background: url('../images/hero1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .5s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  position: relative;
+  background: inherit;
+  min-height: 12.5vh;
+  background-attachment: fixed;
+  overflow: hidden;
+  padding: 0 7.5rem;
+  z-index: 1;
+
+  &:before{
+    content: '';
+    background: inherit; 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0; 
+    bottom: 0;
+    margin: -25px;
+    box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+    filter: blur(10px);
+    z-index: -1;
+  }
+
+  .logo img{
+  height: 2.2rem;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .nav-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 6rem;
+      text-transform: uppercase;
+      font-size: .75rem;
+      transition: all .5s ease;
+      z-index: 2;
+    }
+    
+    .nav-item:first-of-type {
+      width: 10rem;
+    }
+    
+    .nav-item a {
+      box-sizing: border-box;
+      text-decoration: none;
+      color: white;
+      transition: all .5s ease;
+    }
+    
+    .nav-item a:hover {
+      font-weight: 700;
+      transform: scale(1.1);
+    }
+    
+    .nav-item .active {
+      font-weight: 700;
+    }
+    
+    .navbar-toggler {
+      z-index: 2;
+    }
+  }
+  
+  
+  .phone {
+
+    font-size: .75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    min-height: 1rem;
+    min-width: 12.5rem;
+  }
+  
+  .phone span {
+    font-size: 1rem;
+    margin: 0rem .5rem;
+  }
+  
+  .phone i {
+    font-size: 1.2rem;
+    padding: .5rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+    margin: 0rem .5rem;
+  }
+}
+
+
+
+
+
+.new-home {
+  font-family: 'Poppis', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFCE00;
+  height: 30vh;
+}
+
+.new-home h1 {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.new-home h1 span {
+  font-weight: 700;
+}
