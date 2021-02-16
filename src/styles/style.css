@@ -15,6 +15,111 @@ section {
   width: 100vw;
 }
 
+#main-page {
+  background: url('../images/hero1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel {
+  opacity: 1;
+}
+
+.navbar {
+  transition: all .5s ease;
+  position: absolute;
+  padding: 0!important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: white;
+  background: inherit;
+}
+
+.navbar .container-fluid {
+  position: relative;
+  background: inherit;
+  height: 12.5vh;
+  background-attachment: fixed;
+  overflow: hidden;
+  padding: 0 7.5rem;
+  z-index: 2;
+}
+
+.navbar .container-fluid:before{
+  content: '';
+  background: inherit; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0; 
+  bottom: 0;
+  margin: -25px;
+  box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+  filter: blur(10px);
+  z-index: 0;
+ }
+
+.navbar-brand img{
+  height: 2.2rem;
+  filter: invert();
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  text-transform: uppercase;
+  font-size: .75rem;
+  transition: all .5s ease;
+  z-index: 2;
+}
+
+.nav-item:first-of-type {
+  width: 10rem;
+}
+
+.nav-item a {
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  transition: all .5s ease;
+}
+
+.nav-item a:hover {
+  font-weight: 700;
+  transform: scale(1.1);
+}
+
+.nav-item .active {
+  font-weight: 700;
+}
+
+.phone {
+  margin-left: 3rem;
+  font-size: .75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.phone span {
+  font-size: 1rem;
+  margin: 0rem .5rem;
+}
+
+.phone i {
+  font-size: 1.2rem;
+  padding: .5rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  margin: 0rem .5rem;
+}
+
 .carousel {
   height: 100%;
   width: 100%;
@@ -60,7 +165,7 @@ section {
 }
 
 .new-home h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 300;
 }
 
