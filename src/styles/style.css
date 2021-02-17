@@ -267,7 +267,7 @@ section {
   color: white;
 }
 
-.navbar .phone span[href^=tel] {
+.navbar .phone span[href^="tel"] {
   text-decoration: none;
   color: white;
 }

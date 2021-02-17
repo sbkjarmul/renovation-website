@@ -179,7 +179,7 @@ section {
       margin: 0rem .5rem;
       text-decoration: none;
       color: white;
-      &[href^=tel] {
+      &[href^="tel"] {
         text-decoration: none;
         color: white;
       }
