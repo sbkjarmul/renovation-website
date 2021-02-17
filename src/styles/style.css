@@ -260,14 +260,9 @@ section {
   text-decoration: none;
 }
 
-.navbar .phone span {
+.navbar .phone a {
   font-size: 1rem;
   margin: 0rem .5rem;
-  text-decoration: none;
-  color: white;
-}
-
-.navbar .phone span[href^="tel"] {
   text-decoration: none;
   color: white;
 }
@@ -330,24 +325,6 @@ section {
 
 .new-home h1 span {
   font-weight: 700;
-}
-
-a[x-apple-data-detectors] {
-  color: inherit !important;
-  text-decoration: none !important;
-  font-size: inherit !important;
-  font-family: inherit !important;
-  font-weight: inherit !important;
-  line-height: inherit !important;
-}
-
-span[x-apple-data-detectors] {
-  color: inherit !important;
-  text-decoration: none !important;
-  font-size: inherit !important;
-  font-family: inherit !important;
-  font-weight: inherit !important;
-  line-height: inherit !important;
 }
 
 @media (max-width: 575.98px) {
