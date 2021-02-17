@@ -22,6 +22,124 @@ section {
   background-position: center;
 }
 
+.menu {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 50%;
+  z-index: 5;
+  background: inherit;
+  background-attachment: fixed;
+  overflow: hidden;
+  display: none;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.menu.active {
+  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.menu:before {
+  content: '';
+  background: inherit;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: -25px;
+  -webkit-box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
+          box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  z-index: -1;
+}
+
+.menu .navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu .navbar-nav .nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 2rem;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  margin: 1rem;
+  z-index: 2;
+}
+
+.menu .navbar-nav .nav-item a {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  letter-spacing: 1px;
+}
+
+.menu .navbar-nav .nav-item a:hover {
+  font-weight: 700;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.menu .navbar-nav .nav-item .active {
+  font-weight: 600;
+}
+
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,8 +161,8 @@ section {
   right: 0;
   color: white;
   position: relative;
-  background: inherit;
   min-height: 12.5vh;
+  background: inherit;
   background-attachment: fixed;
   overflow: hidden;
   padding: 0 7.5rem;
@@ -79,9 +197,9 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -99,7 +217,7 @@ section {
           align-items: center;
   width: 6rem;
   text-transform: uppercase;
-  font-size: .75rem;
+  font-size: .8rem;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   z-index: 2;
@@ -128,10 +246,6 @@ section {
   font-weight: 700;
 }
 
-.navbar .navbar-nav .navbar-toggler {
-  z-index: 2;
-}
-
 .navbar .phone {
   font-size: .75rem;
   display: -webkit-box;
@@ -145,7 +259,7 @@ section {
           align-items: center;
   z-index: 2;
   min-height: 1rem;
-  min-width: 12.5rem;
+  min-width: auto;
 }
 
 .navbar .phone span {
@@ -160,6 +274,22 @@ section {
   border: 1px solid white;
   color: white;
   margin: 0rem .5rem;
+}
+
+.navbar .burger {
+  width: 2rem;
+  height: 2rem;
+  z-index: 2;
+  display: none;
+}
+
+.navbar .burger .line1,
+.navbar .burger .line2 {
+  width: 32px;
+  height: 3px;
+  background: white;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .new-home {
@@ -184,5 +314,53 @@ section {
 
 .new-home h1 span {
   font-weight: 700;
+}
+
+@media (max-width: 575.98px) {
+  .menu.active {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+  .menu .navbar-nav .nav-item {
+    font-size: 1rem;
+  }
+  .navbar {
+    min-height: 7.5vh;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .menu.active {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .menu.active {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+  .navbar {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .navbar .navbar-nav {
+    display: none;
+  }
+  .navbar .burger {
+    display: block;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .navbar {
+    padding: 0 2.5rem;
+    min-width: 11rem;
+  }
+  .navbar .phone i {
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
