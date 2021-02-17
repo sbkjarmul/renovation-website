@@ -263,6 +263,7 @@ section {
 .navbar .phone span {
   font-size: 1rem;
   margin: 0rem .5rem;
+  text-decoration: none;
 }
 
 .navbar .phone i {
