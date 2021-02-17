@@ -9,10 +9,10 @@ burgerEl.addEventListener("click", (e) => {
 })
 
 if (screen.width < 1100) {
-  logoEl.src = '../src/images/brand-mobile.png';
+  logoEl.src = './src/images/brand-mobile.png';
 }
 else {
-  logoEl.src = '../src/images/brand.png';
+  logoEl.src = './src/images/brand.png';
   menuEl.classList.remove("active");
 }
 
