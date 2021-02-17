@@ -463,6 +463,9 @@ section {
   .new-home h1 {
     font-size: 1rem !important;
   }
+  #about {
+    padding: 10rem 0;
+  }
 }
 
 @media (max-width: 767.98px) {
