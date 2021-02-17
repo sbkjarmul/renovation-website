@@ -260,6 +260,7 @@ section {
   z-index: 2;
   min-height: 1rem;
   min-width: auto;
+  text-decoration: none;
 }
 
 .navbar .phone span {
@@ -325,7 +326,11 @@ section {
     font-size: 1rem;
   }
   .navbar {
+    padding: .5rem 0;
     min-height: 7.5vh;
+  }
+  .phone i {
+    font-size: 1rem;
   }
 }
 
