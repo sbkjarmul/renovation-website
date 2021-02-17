@@ -334,25 +334,87 @@ section {
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: -50%;
-  background-blend-mode: exclusion;
+  background-blend-mode: overlay;
   color: black;
   font-family: 'Poppis', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2);
           box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-#about h1 {
+#about .about-text,
+#about .about-img {
+  margin-top: 5rem;
+  width: 45%;
+  padding: 5rem;
+}
+
+#about .about-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#about .about-text h1 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  font-weight: 300;
+  font-weight: 400;
   padding: 1rem;
-  border: 1px solid #FFCE00;
+  border: 2px solid #FFCE00;
   letter-spacing: 1px;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
 }
 
-#about h1 span {
+#about .about-text h1 span {
   font-weight: 600;
+}
+
+#about .about-text p {
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+#about .about-img {
+  position: relative;
+}
+
+#about .about-img img {
+  position: relative;
+  width: 100%;
+  -webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#about .about-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  border: 2px solid #FFCE00;
 }
 
 .services-wrap {
@@ -362,8 +424,10 @@ section {
 
 #services {
   height: 120vh;
+  background-color: #c9c9c9;
   background-image: url("../images/marmur.jpg");
   background-size: cover;
+  background-blend-mode: overlay;
   -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
           clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
   -webkit-transform: translateY(-10rem);

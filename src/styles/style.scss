@@ -233,21 +233,63 @@ section {
   background-size: 75%;
   background-repeat: no-repeat;
   background-position: -50%;
-  background-blend-mode: exclusion;
+  background-blend-mode: overlay;
 
   color: black;
   font-family: 'Poppis', sans-serif;
-  h1 {
-    width: fit-content;
-    font-weight: 300;
-    padding: 1rem;
-    border: 1px solid #FFCE00;
-    letter-spacing: 1px;
-    span {
-      font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  .about-text,
+  .about-img {
+    margin-top: 5rem;
+    width: 45%;
+    padding: 5rem;
+  }
+  .about-text {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    h1 {
+      width: fit-content;
+      font-weight: 400;
+      padding: 1rem;
+      border: 2px solid #FFCE00;
+      letter-spacing: 1px;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      span {
+        font-weight: 600;
+      }
+    }
+    p {
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
     }
   }
+  .about-img {
+    position: relative;
+    img {
+      position: relative;
+      width: 100%;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 5;
+        border: 2px solid #FFCE00;
 
+    }
+  }
+  
   box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -257,8 +299,10 @@ section {
 
 #services {
   height: 120vh;
+  background-color: rgb(201, 201, 201);
   background-image: url("../images/marmur.jpg");
   background-size: cover;
+  background-blend-mode: overlay;
   clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
   transform: translateY(-10rem);
 }
