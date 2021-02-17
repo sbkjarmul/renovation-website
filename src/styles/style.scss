@@ -215,15 +215,13 @@ section {
   align-items: center;
   background-color: #FFCE00;
   height: 30vh;
-}
-
-.new-home h1 {
-  font-size: 1.8rem;
-  font-weight: 300;
-}
-
-.new-home h1 span {
-  font-weight: 700;
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    span {
+      font-weight: 700;
+    }
+  }
 }
 
 
@@ -256,6 +254,13 @@ section {
       font-size: .75rem!important;
     }
   }
+  .new-home {
+    padding: 2rem;
+    text-align: center;
+    h1 { 
+      font-size: 1rem!important;
+    }
+  }
 }
 
 // Small devices (landscape phones, less than 768px)
@@ -266,15 +271,15 @@ section {
       // transform: translateY(4px);
     }
   }
+  .new-home {
+    h1 {
+      font-size: 1.3rem;
+    }
+  }
 }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-  .menu {
-    &.active {
-      // transform: translateY(4px);
-    }
-  }
   .navbar {
     justify-content: space-between;
     .navbar-nav {

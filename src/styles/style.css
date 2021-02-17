@@ -345,11 +345,21 @@ section {
     padding: .1rem;
     font-size: 0.75rem !important;
   }
+  .new-home {
+    padding: 2rem;
+    text-align: center;
+  }
+  .new-home h1 {
+    font-size: 1rem !important;
+  }
 }
 
 @media (max-width: 767.98px) {
   .menu.active {
     height: 52%;
+  }
+  .new-home h1 {
+    font-size: 1.3rem;
   }
 }
 
