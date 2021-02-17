@@ -7,6 +7,7 @@
 body {
   font-family: 'Josefin Sans', sans-serif;
   overflow-x: hidden;
+  background-color: #2C2C2C;
 }
 
 section {
@@ -195,7 +196,6 @@ section {
   .burger {
     z-index: 2;
     display: none;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -225,6 +225,42 @@ section {
       font-weight: 700;
     }
   }
+}
+
+#about {
+  background-color: #EFEFEF;
+  background-image: url("../images/logo.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: -50%;
+  background-blend-mode: exclusion;
+
+  color: black;
+  font-family: 'Poppis', sans-serif;
+  h1 {
+    width: fit-content;
+    font-weight: 300;
+    padding: 1rem;
+    border: 1px solid #FFCE00;
+    letter-spacing: 1px;
+    span {
+      font-weight: 600;
+    }
+  }
+
+  box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.services-wrap {
+  filter: drop-shadow(-1px 0 10px rgba(0, 0, 0, 0.2));
+}
+
+#services {
+  height: 120vh;
+  background-image: url("../images/marmur.jpg");
+  background-size: cover;
+  clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  transform: translateY(-10rem);
 }
 
 @media (max-width: 575.98px) { 
@@ -259,11 +295,13 @@ section {
   .new-home {
     padding: 2rem;
     text-align: center;
+    z-index: 2;
     h1 { 
       font-size: 1rem!important;
     }
   }
 }
+
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
