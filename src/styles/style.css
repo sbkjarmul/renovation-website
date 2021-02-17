@@ -264,9 +264,10 @@ section {
   font-size: 1rem;
   margin: 0rem .5rem;
   text-decoration: none;
+  color: white;
 }
 
-.navbar .phone span span[href^=tel] {
+.navbar .phone span[href^=tel] {
   text-decoration: none;
   color: white;
 }
