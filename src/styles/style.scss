@@ -36,12 +36,11 @@ section {
   display: none;
   transition: all .5s ease;
   &.active {
-    display: block;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(1px);
+    // transform: translateY(1px);
     transition: all .5s ease;
   }
   &:before{
@@ -57,7 +56,7 @@ section {
     filter: blur(10px);
     z-index: -1;
   }
-  .navbar-nav {
+  .menu-nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +67,7 @@ section {
       align-items: center;
       width: 100%;
       text-transform: uppercase;
-      font-size: 2rem;
+      font-size: 1rem;
       transition: all .5s ease;
       margin: 1rem;
       z-index: 2;
@@ -191,10 +190,12 @@ section {
   }
   
   .burger {
-    width: 2rem;
-    height: 2rem;
     z-index: 2;
     display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .line1,
       .line2 {
         width: 32px;
@@ -229,9 +230,10 @@ section {
 @media (max-width: 575.98px) { 
   .menu {
     &.active {
-      transform: translateY(2px);
+      height: 52%;
+      // transform: translateY(2px);
     }
-    .navbar-nav {
+    .menu-nav {
       .nav-item {
         font-size: 1rem;
       }
@@ -239,11 +241,19 @@ section {
   }
   .navbar {
     padding: .5rem 0;
-    min-height: 7.5vh;
+    min-height: 3.5rem;
+    .logo {
+      img {
+        height: 1.2rem;
+      }
+    }
   }
   .phone {
     i {
-      font-size: 1rem;
+      width: auto;
+      height: auto;
+      padding: .1rem;
+      font-size: .75rem!important;
     }
   }
 }
@@ -252,7 +262,8 @@ section {
 @media (max-width: 767.98px) {
   .menu {
     &.active {
-      transform: translateY(4px);
+      height: 52%;
+      // transform: translateY(4px);
     }
   }
 }
@@ -261,7 +272,7 @@ section {
 @media (max-width: 991.98px) {
   .menu {
     &.active {
-      transform: translateY(4px);
+      // transform: translateY(4px);
     }
   }
   .navbar {

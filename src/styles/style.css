@@ -49,7 +49,6 @@ section {
 }
 
 .menu.active {
-  display: block;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,8 +62,6 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
 }
@@ -85,7 +82,7 @@ section {
   z-index: -1;
 }
 
-.menu .navbar-nav {
+.menu .menu-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,7 +98,7 @@ section {
           align-items: center;
 }
 
-.menu .navbar-nav .nav-item {
+.menu .menu-nav .nav-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,14 +110,14 @@ section {
           align-items: center;
   width: 100%;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1rem;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   margin: 1rem;
   z-index: 2;
 }
 
-.menu .navbar-nav .nav-item a {
+.menu .menu-nav .nav-item a {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
@@ -130,13 +127,13 @@ section {
   letter-spacing: 1px;
 }
 
-.menu .navbar-nav .nav-item a:hover {
+.menu .menu-nav .nav-item a:hover {
   font-weight: 700;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.menu .navbar-nav .nav-item .active {
+.menu .menu-nav .nav-item .active {
   font-weight: 600;
 }
 
@@ -278,10 +275,21 @@ section {
 }
 
 .navbar .burger {
-  width: 2rem;
-  height: 2rem;
   z-index: 2;
   display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .navbar .burger .line1,
@@ -319,33 +327,33 @@ section {
 
 @media (max-width: 575.98px) {
   .menu.active {
-    -webkit-transform: translateY(2px);
-            transform: translateY(2px);
+    height: 52%;
   }
-  .menu .navbar-nav .nav-item {
+  .menu .menu-nav .nav-item {
     font-size: 1rem;
   }
   .navbar {
     padding: .5rem 0;
-    min-height: 7.5vh;
+    min-height: 3.5rem;
+  }
+  .navbar .logo img {
+    height: 1.2rem;
   }
   .phone i {
-    font-size: 1rem;
+    width: auto;
+    height: auto;
+    padding: .1rem;
+    font-size: 0.75rem !important;
   }
 }
 
 @media (max-width: 767.98px) {
   .menu.active {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
+    height: 52%;
   }
 }
 
 @media (max-width: 991.98px) {
-  .menu.active {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
-  }
   .navbar {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
