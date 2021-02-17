@@ -268,7 +268,7 @@ section {
 
 .navbar .phone span span[href^=tel] {
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 .navbar .phone i {
