@@ -228,14 +228,16 @@ section {
 }
 
 #about {
-  height: 100vh;
-
+  height: fit-content;
+  padding: 5rem 0 10rem 0;
+  background-origin: border-box;
   background-color: #EFEFEF;
   background-image: url("../images/logo.png");
-  background-size: 75%;
+  background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: -50%;
+  background-position: left;
   background-blend-mode: overlay;
+  background-attachment: fixed;
 
   color: black;
   font-family: 'Poppis', sans-serif;
@@ -286,7 +288,6 @@ section {
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 5;
         border: 2px solid #FFCE00;
     }
   }
@@ -299,13 +300,76 @@ section {
 }
 
 #services {
-  height: 120vh;
-  background-color: rgb(201, 201, 201);
+  background-color: rgb(214, 214, 214);
   background-image: url("../images/marmur.jpg");
   background-size: cover;
   background-blend-mode: overlay;
   clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
-  transform: translateY(-10rem);
+  transform: translateY(-13rem);
+
+  min-height: 120vh;
+  height: auto;
+  padding: 10rem;
+  padding-top: 15rem;
+
+  color: black;
+  font-family: 'Poppis', sans-serif;
+  h1 {
+    position: relative;
+    width: fit-content;
+    font-weight: 400;
+    padding: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    &:before {
+      content: '';
+      position: absolute;
+      border: 2px solid #FFCE00;
+      top: 0;
+      left: 25%;
+      right: -5%;
+      bottom: 0;
+    }
+    span {
+      font-weight: 600;
+    }
+  }
+  p {
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .services-box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .service {
+      margin: 2rem;
+      max-width: 15rem;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: all .5s ease-in-out;
+      background: rgb(255,255,255);
+      background: radial-gradient(circle, rgba(255,255,255,1) 35%, rgba(255,250,0,0) 100%); 
+      &:hover {
+        transform: scale(1.2);
+      }
+      p {
+        padding: 1rem;
+        text-align: center;
+        font-weight: 400;
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 @media (max-width: 575.98px) { 
@@ -345,8 +409,16 @@ section {
       font-size: 1rem!important;
     }
   }
+
   #about {
-    padding: 10rem 0;
+    .about-img {
+      width: 80% !important;
+      margin-bottom: 5rem !important;
+    }
+  }
+
+  #services {
+    clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
   }
 }
 
@@ -364,6 +436,17 @@ section {
       font-size: 1.3rem;
     }
   }
+
+  #about {
+    .about-img {
+      width: 60%;
+      margin-bottom: 5rem !important;
+    }
+  }
+ 
+  #services {
+    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  }
 }
 
 // Medium devices (tablets, less than 992px)
@@ -377,10 +460,16 @@ section {
       display: block;
     }
   }
+  #about {
+    .about-img {
+      width: 70%!important;
+      margin-bottom: 5rem !important;
+    }
+  }
 }
 
 // Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {
+@media (max-width: 1200px) {
   .navbar {
     padding: 0 2.5rem;
     min-width: 11rem;
@@ -403,11 +492,30 @@ section {
     }
     .about-img {
       margin: 0;
-      width: 80%;
+      width: 60%;
       padding: 2.5rem;
+      margin-bottom: 5rem;
       img {
         width: 100%;
       }
     }
+  }
+}
+
+@media (min-width: 1440px) {
+  #about {
+    padding-bottom: 15rem!important;
+    .about-img {
+      width: 40%!important;
+    }
+  }
+}
+
+@media (min-height: 900px) {
+  #about {
+    padding-bottom: 10rem;
+  }
+  #services {
+    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
   }
 }
