@@ -263,13 +263,14 @@ section {
       margin-bottom: 2.5rem;
       font-size: 2rem;
       span {
-        font-weight: 600;
+        font-weight: 400;
       }
     }
     p {
       font-weight: 300;
       line-height: 1.5;
       margin-bottom: 1.5rem;
+      font-size: 1rem !important;
     }
   }
   .about-img {
@@ -303,12 +304,14 @@ section {
   background-size: cover;
   background-blend-mode: overlay;
   clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
-  transform: translateY(-15rem);
+  transform: translateY(-16rem);
 
   min-height: 120vh;
   height: auto;
-  padding: 10rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
   padding-top: 15rem;
+  padding-bottom: 10rem;
 
   color: black;
   font-family: 'Poppis', sans-serif;
@@ -338,6 +341,10 @@ section {
     line-height: 1.5;
     margin-bottom: 1.5rem;
   }
+  p:nth-child(3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
   .services-box {
     width: 100%;
     height: auto;
@@ -355,6 +362,20 @@ section {
       align-items: center;
       flex-direction: column;
       transition: all 0.5s ease-in-out;
+
+      .service-img {
+        height: 10rem;
+        width: 10rem;
+        border-radius: 100%;
+        background: rgb(49, 49, 49);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 50%;
+        }
+      }
       &:hover {
         transform: scale(1.2);
       }
@@ -362,7 +383,7 @@ section {
         padding: 1rem;
         text-align: center;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
   }
@@ -407,15 +428,42 @@ section {
   }
 
   #about {
+    padding-top: 1rem;
+    .about-text {
+      h1 {
+        font-size: 1.5rem !important;
+      }
+      padding: 2.5rem;
+      text-align: center;
+    }
+    p {
+      font-size: 0.9rem !important;
+      margin: auto;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.555);
+    }
     .about-img {
       width: 80% !important;
       margin-bottom: 5rem !important;
     }
   }
 
-  // #services {
-  //   clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%) !important;
-  // }
+  #services {
+    padding-top: 12.5rem !important;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      text-align: center;
+    }
+    p:nth-child(3) {
+      font-weight: 600;
+    }
+    .service {
+      margin: 0 !important;
+    }
+  }
 }
 
 // Small devices (landscape phones, less than 768px)

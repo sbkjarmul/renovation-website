@@ -392,13 +392,14 @@ section {
 }
 
 #about .about-text h1 span {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 #about .about-text p {
   font-weight: 300;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  font-size: 1rem !important;
 }
 
 #about .about-img {
@@ -434,12 +435,14 @@ section {
   background-blend-mode: overlay;
   -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
           clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
-  -webkit-transform: translateY(-15rem);
-          transform: translateY(-15rem);
+  -webkit-transform: translateY(-16rem);
+          transform: translateY(-16rem);
   min-height: 120vh;
   height: auto;
-  padding: 10rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
   padding-top: 15rem;
+  padding-bottom: 10rem;
   color: black;
   font-family: 'Poppis', sans-serif;
 }
@@ -474,6 +477,11 @@ section {
   font-weight: 300;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+}
+
+#services p:nth-child(3) {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 #services .services-box {
@@ -517,6 +525,26 @@ section {
   transition: all 0.5s ease-in-out;
 }
 
+#services .services-box .service .service-img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 100%;
+  background: #313131;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#services .services-box .service .service-img img {
+  width: 50%;
+}
+
 #services .services-box .service:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
@@ -526,7 +554,7 @@ section {
   padding: 1rem;
   text-align: center;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 575.98px) {
@@ -557,9 +585,41 @@ section {
   .new-home h1 {
     font-size: 1rem !important;
   }
+  #about {
+    padding-top: 1rem;
+  }
+  #about .about-text {
+    padding: 2.5rem;
+    text-align: center;
+  }
+  #about .about-text h1 {
+    font-size: 1.5rem !important;
+  }
+  #about p {
+    font-size: 0.9rem !important;
+    margin: auto;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.555);
+  }
   #about .about-img {
     width: 80% !important;
     margin-bottom: 5rem !important;
+  }
+  #services {
+    padding-top: 12.5rem !important;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  #services h1 {
+    font-size: 1.5rem;
+  }
+  #services p {
+    text-align: center;
+  }
+  #services p:nth-child(3) {
+    font-weight: 600;
+  }
+  #services .service {
+    margin: 0 !important;
   }
 }
 
