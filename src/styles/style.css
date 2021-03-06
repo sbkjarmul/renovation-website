@@ -487,21 +487,13 @@ section {
 #services .services-box {
   width: 100%;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
 }
 
 #services .services-box .service {
@@ -539,15 +531,17 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+#services .services-box .service .service-img:hover {
+  -webkit-box-shadow: 0 0 20px #ffce00;
+          box-shadow: 0 0 20px #ffce00;
 }
 
 #services .services-box .service .service-img img {
   width: 50%;
-}
-
-#services .services-box .service:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
 }
 
 #services .services-box .service p {
@@ -555,6 +549,72 @@ section {
   text-align: center;
   font-weight: 400;
   font-size: 1.1rem;
+}
+
+#projects {
+  width: 100%;
+  height: 100vh;
+  padding: 0 10rem;
+  color: white;
+  font-family: 'Poppis', sans-serif;
+}
+
+#projects h1 {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 400;
+  padding: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+}
+
+#projects h1:before {
+  content: '';
+  position: absolute;
+  border: 2px solid #ffce00;
+  top: 0;
+  left: 27%;
+  right: -5%;
+  bottom: 0;
+}
+
+#projects h1 span {
+  font-weight: 600;
+}
+
+#projects .gallery {
+  margin: auto;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-gap: 0;
+}
+
+#projects .gallery .gallery-img {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+#projects .gallery .gallery-img img {
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+#projects .gallery .gallery-img img:hover {
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 @media (max-width: 575.98px) {
@@ -621,6 +681,9 @@ section {
   #services .service {
     margin: 0 !important;
   }
+  #projects {
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -638,9 +701,35 @@ section {
     -webkit-clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%) !important;
             clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%) !important;
   }
+  #services .services-box {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+    -ms-grid-rows: (1fr)[8] !important;
+        grid-template-rows: repeat(8, 1fr) !important;
+  }
+  #projects .gallery {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+    -ms-grid-rows: (1fr)[8] !important;
+        grid-template-rows: repeat(8, 1fr) !important;
+  }
 }
 
 @media (max-width: 991.98px) {
+  .navbar {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .navbar .navbar-nav {
+    display: none;
+  }
+  .navbar .burger {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
   .navbar {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -662,6 +751,15 @@ section {
     padding-top: 20rem;
     -webkit-clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
             clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+  }
+  #services .services-box {
+    -ms-grid-columns: (1fr)[2] !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+  }
+  #projects {
+    padding: 0 5rem;
   }
 }
 
@@ -704,6 +802,18 @@ section {
   #services {
     -webkit-clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
             clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  }
+  #services .services-box {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+  }
+  #projects .gallery {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
   }
 }
 
