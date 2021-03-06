@@ -682,7 +682,7 @@ section {
     margin: 0 !important;
   }
   #projects {
-    padding: 0 1rem;
+    padding: 0 0rem !important;
   }
 }
 
@@ -707,29 +707,28 @@ section {
     -ms-grid-rows: (1fr)[8] !important;
         grid-template-rows: repeat(8, 1fr) !important;
   }
-  #projects .gallery {
-    -ms-grid-columns: 1fr !important;
-        grid-template-columns: 1fr !important;
-    -ms-grid-rows: (1fr)[8] !important;
-        grid-template-rows: repeat(8, 1fr) !important;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .navbar {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .navbar .navbar-nav {
-    display: none;
-  }
-  .navbar .burger {
-    display: block;
+  #projects {
+    padding: 0 1rem;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+  #services {
+    -webkit-transform: translateY(-17rem);
+            transform: translateY(-17rem);
+    padding-top: 20rem;
+    -webkit-clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+            clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+  }
+  #services .services-box {
+    -ms-grid-columns: (1fr)[2] !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    -ms-grid-rows: (1fr)[4] !important;
+        grid-template-rows: repeat(4, 1fr) !important;
+  }
+}
+
+@media (max-width: 991.98px) {
   .navbar {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -751,12 +750,6 @@ section {
     padding-top: 20rem;
     -webkit-clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
             clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
-  }
-  #services .services-box {
-    -ms-grid-columns: (1fr)[2] !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-    -ms-grid-rows: (1fr)[4];
-        grid-template-rows: repeat(4, 1fr);
   }
   #projects {
     padding: 0 5rem;
