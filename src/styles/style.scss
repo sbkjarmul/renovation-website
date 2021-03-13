@@ -547,7 +547,7 @@ section {
       bottom: 0;
       margin: -25px;
       box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
-      filter: blur(10px);
+      filter: blur(20px);
       z-index: 1;
     }
   }
@@ -558,7 +558,14 @@ section {
     margin-right: 0.5rem;
     background-color: gray;
     z-index: 10;
+    &.active {
+      border: 2px solid white;
+    }
+    &:nth-child(2) {
+      border: 2px solid #ffce00;
+    }
   }
+
   .film-stock {
     bottom: 0;
     position: absolute;
