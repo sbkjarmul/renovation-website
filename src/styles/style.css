@@ -439,8 +439,8 @@ section {
           transform: translateY(-16rem);
   min-height: 120vh;
   height: auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
   padding-top: 15rem;
   padding-bottom: 10rem;
   color: black;
@@ -497,7 +497,7 @@ section {
 }
 
 #services .services-box .service {
-  margin: 2rem;
+  margin: 1 0rem;
   max-width: 15rem;
   padding: 1rem;
   display: -webkit-box;
@@ -552,6 +552,8 @@ section {
 }
 
 #projects {
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
   width: 100%;
   height: 100vh;
   padding: 0 10rem;
@@ -601,8 +603,24 @@ section {
 }
 
 #projects .gallery .gallery-img {
+  position: relative;
   overflow: hidden;
   aspect-ratio: 1 / 1;
+}
+
+#projects .gallery .gallery-img i {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 2rem;
+  color: #ffce00;
 }
 
 #projects .gallery .gallery-img img {
@@ -615,6 +633,145 @@ section {
 #projects .gallery .gallery-img img:hover {
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-filter: brightness(10%);
+          filter: brightness(10%);
+}
+
+#projects .gallery .gallery-img img:hover ~ i {
+  opacity: 1;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
+  background-image: url("../images/gallery/1/1.jpg");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  color: white;
+  z-index: 5;
+}
+
+.modal .modal-close i {
+  pointer-events: none;
+}
+
+.modal .control {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 11;
+}
+
+.modal .control i {
+  font-size: 3rem;
+  color: white;
+}
+
+.modal .left {
+  left: 2.5%;
+}
+
+.modal .right {
+  right: 2.5%;
+}
+
+.modal .big-box {
+  background: inherit;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.modal .big-box .big-photo {
+  height: calc(80% - 1rem);
+  background-color: white;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  margin-top: 1rem;
+  -webkit-transform: translate(-50%, 0%) scale(0.5);
+          transform: translate(-50%, 0%) scale(0.5);
+  -webkit-transition: -webkit-transform 0.25s ease-out;
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  z-index: 2;
+  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.modal .big-box .big-photo.open {
+  -webkit-transform: translate(-50%, 0) scale(1);
+          transform: translate(-50%, 0) scale(1);
+}
+
+.modal .big-box::before {
+  content: '';
+  background: inherit;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: -25px;
+  -webkit-box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
+          box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  z-index: 1;
+}
+
+.modal .small-photo {
+  height: 100%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: gray;
+  z-index: 10;
+}
+
+.modal .film-stock {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  z-index: 9;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
 }
 
 @media (max-width: 575.98px) {
