@@ -4,6 +4,17 @@ const burgerEl = document.querySelector('.burger');
 
 const modalEl = document.querySelector('.modal');
 const previews = document.querySelectorAll('.gallery-img');
+const arrows = document.querySelectorAll('.control');
+
+arrows.forEach((arrow) => {
+  arrow.addEventListener('click', (e) => {
+    changeImage(e.target);
+  });
+});
+
+document.addEventListener('keyup', (e) => {
+  changeImage(e);
+});
 
 burgerEl.addEventListener('click', (e) => {
   console.log(e.target);
@@ -94,5 +105,48 @@ function doesImgExists(url) {
     return false;
   } else {
     return true;
+  }
+}
+
+function changeImage(arrow) {
+  console.log(arrow);
+  let smallPhotos = Array.from(document.querySelectorAll('.small-photo'));
+  if (arrow.classList.contains('left')) {
+    let index = smallPhotos.findIndex((photo) => {
+      return photo.classList.contains('active');
+    });
+
+    smallPhotos[index].classList.remove('active');
+    if (index === 0) {
+      smallPhotos[smallPhotos.length - 1].classList.add('active');
+      const bigPhoto = modalEl.querySelector('.big-photo');
+      bigPhoto.src = smallPhotos[smallPhotos.length - 1].src;
+      modalEl.style.backgroundImage = `url(${
+        smallPhotos[smallPhotos.length - 1].src
+      }`;
+    } else {
+      smallPhotos[index - 1].classList.add('active');
+
+      const bigPhoto = modalEl.querySelector('.big-photo');
+      bigPhoto.src = smallPhotos[index - 1].src;
+      modalEl.style.backgroundImage = `url(${smallPhotos[index - 1].src}`;
+    }
+  } else if (arrow.classList.contains('right')) {
+    let index = smallPhotos.findIndex((photo) => {
+      return photo.classList.contains('active');
+    });
+
+    smallPhotos[index].classList.remove('active');
+    if (index === smallPhotos.length - 1) {
+      smallPhotos[0].classList.add('active');
+      const bigPhoto = modalEl.querySelector('.big-photo');
+      bigPhoto.src = smallPhotos[0].src;
+      modalEl.style.backgroundImage = `url(${smallPhotos[0].src}`;
+    } else {
+      smallPhotos[index + 1].classList.add('active');
+      const bigPhoto = modalEl.querySelector('.big-photo');
+      bigPhoto.src = smallPhotos[index + 1].src;
+      modalEl.style.backgroundImage = `url(${smallPhotos[index + 1].src}`;
+    }
   }
 }

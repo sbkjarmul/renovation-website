@@ -690,6 +690,7 @@ section {
 }
 
 .modal .control i {
+  pointer-events: none;
   font-size: 3rem;
   color: white;
 }

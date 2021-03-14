@@ -508,6 +508,7 @@ section {
     transform: translateY(-50%);
     z-index: 11;
     i {
+      pointer-events: none;
       font-size: 3rem;
       color: white;
     }
