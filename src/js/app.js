@@ -6,6 +6,12 @@ const modalEl = document.querySelector('.modal');
 const previews = document.querySelectorAll('.gallery-img');
 const arrows = document.querySelectorAll('.control');
 
+const contactBtn = document.querySelector('.footer__button');
+
+contactBtn.addEventListener('click', (e) => {
+  console.log(e.target);
+});
+
 arrows.forEach((arrow) => {
   arrow.addEventListener('click', (e) => {
     changeImage(e.target);
@@ -17,9 +23,7 @@ document.addEventListener('keyup', (e) => {
 });
 
 burgerEl.addEventListener('click', (e) => {
-  console.log(e.target);
   menuEl.classList.toggle('active');
-  console.log(menuEl);
 });
 
 if (screen.width < 1100) {
@@ -53,15 +57,12 @@ previews.forEach((preview) => {
     modalEl.appendChild(filmStock);
 
     let i = 1;
-    while (
-      doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)
-    ) {
+    while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
       const smallPhoto = document.createElement('img');
       smallPhoto.classList.add('small-photo');
-
       smallPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`;
 
-      if (i == 1) {
+      if (i === 1) {
         smallPhoto.classList.add('active');
       }
 
@@ -69,14 +70,13 @@ previews.forEach((preview) => {
         modalEl.querySelectorAll('.small-photo').forEach((photo) => {
           photo.classList.remove('active');
         });
+
         smallPhoto.classList.add('active');
         bigPhoto.src = smallPhoto.src;
-        modalEl.style.backgroundImage = `url(${smallPhoto.src}
-        )`;
+        modalEl.style.backgroundImage = `url(${smallPhoto.src})`;
       });
 
       filmStock.appendChild(smallPhoto);
-
       i++;
     }
 
@@ -101,11 +101,11 @@ function doesImgExists(url) {
   xhr.open('HEAD', url, false);
   xhr.send();
 
-  if (xhr.status == '404') {
+  if (xhr.status === 404) {
     return false;
-  } else {
-    return true;
-  }
+  } 
+
+  return true;
 }
 
 function changeImage(arrow) {

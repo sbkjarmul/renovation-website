@@ -555,10 +555,11 @@ section {
   -webkit-transform: translateY(-15%);
           transform: translateY(-15%);
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   padding: 0 10rem;
   color: white;
   font-family: 'Poppis', sans-serif;
+  z-index: 3;
 }
 
 #projects h1 {
@@ -780,6 +781,180 @@ section {
   overflow: hidden;
 }
 
+#footer {
+  height: 850px;
+  background: #efefef;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#footer .footer__topbar {
+  position: relative;
+  height: 8rem;
+  width: calc(100% - 20rem);
+  background: #ffce00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 300px;
+}
+
+#footer .footer__medium-bar {
+  height: 9rem;
+  width: 100%;
+  padding: 0 10rem;
+  background-color: #2c2c2c;
+}
+
+#footer .footer__downbar {
+  height: 64px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footer .footer__downbar span {
+  color: #ffce00;
+  margin-left: 4px;
+}
+
+#footer .footer__photo {
+  margin: 0 20px;
+  width: 240px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#footer .footer__button {
+  background: none;
+  border: 1px solid black;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  margin: 0 48px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+#footer .footer__button:hover {
+  background: black !important;
+  color: #ffce00;
+}
+
+#footer .footer__line {
+  border-left: 3px solid white;
+  height: 40px;
+  margin: 0 16px;
+}
+
+#footer .footer__topbar-text {
+  font-weight: 300;
+  color: white;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#footer .footer__topbar-text span {
+  font-size: 18px;
+  display: block;
+  margin: 12px;
+}
+
+#footer .footer__topbar-text .footer__topbar-text--big {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+#footer .footer__inside-block {
+  font-family: 'Poppis', sans-serif;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 24px 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#footer .footer__inside-block .footer__contact-box {
+  margin: 0 12px;
+  padding: 0 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footer .footer__inside-block .footer__contact-box .footer__contact-icon {
+  color: white;
+  font-size: 40px;
+}
+
+#footer .footer__inside-block .footer__contact-box .footer__contact-icon--phone {
+  font-size: 30px;
+  color: white;
+}
+
+#footer .footer__inside-block .footer__contact-box .footer__contact-text {
+  font-weight: 400;
+  color: white;
+  font-size: 14px;
+}
+
+#footer .footer__inside-block .footer__contact-box .footer__contact-text span {
+  display: block;
+  margin: 4px;
+}
+
+#footer .footer__inside-block .footer__contact-box .footer__contact-text .footer__contact-text--link {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+}
+
 @media (max-width: 575.98px) {
   .menu.active {
     height: 52%;
@@ -872,6 +1047,10 @@ section {
   }
   #projects {
     padding: 0 1rem;
+    height: 100px;
+  }
+  #footer {
+    height: 0px;
   }
 }
 
@@ -888,6 +1067,9 @@ section {
         grid-template-columns: repeat(2, 1fr) !important;
     -ms-grid-rows: (1fr)[4] !important;
         grid-template-rows: repeat(4, 1fr) !important;
+  }
+  #footer {
+    height: 100px;
   }
 }
 
@@ -916,6 +1098,52 @@ section {
   }
   #projects {
     padding: 0 5rem;
+  }
+  #footer {
+    height: 1600px !important;
+  }
+  #footer .footer__topbar {
+    height: 22rem;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 32px;
+  }
+  #footer .footer__topbar .footer__line {
+    display: none;
+  }
+  #footer .footer__topbar .footer__button {
+    background: black;
+    color: #ffce00;
+    margin-bottom: 64px;
+    font-size: 20px;
+    padding: 24px 32px;
+  }
+  #footer .footer__topbar .footer__button:hover {
+    background: #ffce00 !important;
+    color: black;
+  }
+  #footer .footer__medium-bar {
+    height: 18rem;
+    padding: 0;
+  }
+  #footer .footer__medium-bar .footer__inside-block {
+    padding: 16px;
+    height: 18rem;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 
@@ -970,6 +1198,15 @@ section {
         grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
+  }
+  #footer {
+    height: 1300px;
+  }
+  #footer .footer__topbar {
+    width: 100%;
+  }
+  #footer .footer__medium-bar {
+    padding: 0;
   }
 }
 
