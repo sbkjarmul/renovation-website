@@ -849,7 +849,23 @@ section {
     padding: 0 0rem !important;
   }
 
- 
+  #footer {
+    .footer__topbar {
+      height: fit-content!important;
+      
+      .footer__photo {
+        left: 50%;
+        transform: translate(-50%);
+      }
+         
+      .footer__button {
+        font-size: 16px!important;
+        margin: 0!important;
+        margin-top: 40px!important;
+        margin-bottom: 240px!important;
+      }
+    }
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -886,11 +902,10 @@ section {
   }
 
   #footer {
-    height: 0px;
-
+    .footer__button {
+      margin-left: 240px;
+    }
   }
-
-  
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {

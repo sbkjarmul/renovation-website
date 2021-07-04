@@ -1022,6 +1022,22 @@ section {
   #projects {
     padding: 0 0rem !important;
   }
+  #footer .footer__topbar {
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+  #footer .footer__topbar .footer__photo {
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+  #footer .footer__topbar .footer__button {
+    font-size: 16px !important;
+    margin: 0 !important;
+    margin-top: 40px !important;
+    margin-bottom: 240px !important;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -1049,8 +1065,8 @@ section {
     padding: 0 1rem;
     height: 100px;
   }
-  #footer {
-    height: 0px;
+  #footer .footer__button {
+    margin-left: 240px;
   }
 }
 
