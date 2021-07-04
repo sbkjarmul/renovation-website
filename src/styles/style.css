@@ -1021,6 +1021,7 @@ section {
   }
   #projects {
     padding: 0 0rem !important;
+    margin-bottom: 100px;
   }
   #footer .footer__topbar {
     height: -webkit-fit-content !important;
