@@ -80,9 +80,10 @@ thumbnails.forEach((thumbnail) => {
           photo.classList.remove('active');
         });
 
-        smallPhoto.classList.add('active');
-        bigPhoto.src = smallPhoto.src;
-        modalEl.style.backgroundImage = `url(${smallPhoto.src})`;
+        setActiveImage(smallPhoto, bigPhoto);
+        // smallPhoto.classList.add('active');
+        // bigPhoto.src = smallPhoto.src;
+        // modalEl.style.backgroundImage = `url(${smallPhoto.src})`;
       });
 
       filmStock.appendChild(smallPhoto);
@@ -114,6 +115,12 @@ thumbnails.forEach((thumbnail) => {
     modalEl.classList.add('open');
   });
 });
+
+const setActiveImage = (smallPhoto, bigPhoto) => {
+  smallPhoto.classList.add('active');
+  bigPhoto.src = smallPhoto.src;
+  modalEl.style.backgroundImage = `url(${smallPhoto.src})`;
+}
 
 const closeGallery = (bigBox, bigPhoto) => {
   modalEl.classList.remove('open');
