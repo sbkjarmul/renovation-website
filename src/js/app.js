@@ -76,10 +76,10 @@ thumbnails.forEach((thumbnail) => {
       const smallPhoto = createThumbnail(photoNr, i);
 
       smallPhoto.addEventListener('click', () => {
-        modalEl.querySelectorAll('.small-photo').forEach((photo) => {
-          photo.classList.remove('active');
-        });
-
+        // modalEl.querySelectorAll('.small-photo').forEach((photo) => {
+        //   photo.classList.remove('active');
+        // });
+        disableActiveImage();
         setActiveImage(smallPhoto, bigPhoto);
         // smallPhoto.classList.add('active');
         // bigPhoto.src = smallPhoto.src;
@@ -115,6 +115,12 @@ thumbnails.forEach((thumbnail) => {
     modalEl.classList.add('open');
   });
 });
+
+const disableActiveImage = () => {
+  modalEl.querySelectorAll('.small-photo').forEach((photo) => {
+    photo.classList.remove('active');
+  });
+}
 
 const setActiveImage = (smallPhoto, bigPhoto) => {
   smallPhoto.classList.add('active');
