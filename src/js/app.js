@@ -57,6 +57,7 @@ previews.forEach((preview) => {
     modalEl.appendChild(filmStock);
 
     let i = 1;
+
     while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
       const smallPhoto = document.createElement('img');
       smallPhoto.classList.add('small-photo');
@@ -109,9 +110,11 @@ function doesImgExists(url) {
 }
 
 function changeImage(arrow) {
-  console.log(arrow);
+  const isLeft = arrow.classList.contains('left');
+  const isRight = arrow.classList.contains('right');
   let smallPhotos = Array.from(document.querySelectorAll('.small-photo'));
-  if (arrow.classList.contains('left')) {
+
+  if (isLeft) {
     let index = smallPhotos.findIndex((photo) => {
       return photo.classList.contains('active');
     });
@@ -131,7 +134,9 @@ function changeImage(arrow) {
       bigPhoto.src = smallPhotos[index - 1].src;
       modalEl.style.backgroundImage = `url(${smallPhotos[index - 1].src}`;
     }
-  } else if (arrow.classList.contains('right')) {
+  }  
+  
+  if (isRight) {
     let index = smallPhotos.findIndex((photo) => {
       return photo.classList.contains('active');
     });
