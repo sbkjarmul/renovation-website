@@ -3,7 +3,7 @@ const menuEl = document.querySelector('.menu');
 const burgerEl = document.querySelector('.burger');
 
 const modalEl = document.querySelector('.modal');
-const previews = document.querySelectorAll('.gallery-img');
+const thumbnails = document.querySelectorAll('.gallery-img');
 const arrows = document.querySelectorAll('.control');
 
 const contactBtn = document.querySelector('.footer__button');
@@ -29,33 +29,49 @@ if (screen.width < 1100) {
   menuEl.classList.remove('active');
 }
 
-previews.forEach((preview) => {
-  preview.addEventListener('click', () => {
-    const bigBox = document.createElement('div');
-    bigBox.classList.add('big-box');
-    modalEl.appendChild(bigBox);
+const createContainer = () => {
+  const bigBox = document.createElement('div');
+  bigBox.classList.add('big-box');
+  modalEl.appendChild(bigBox);
 
-    const bigPhoto = document.createElement('img');
-    const previewPhoto = preview.querySelector('img');
-    const photoNr = previewPhoto.getAttribute('data-original');
+  return bigBox;
+}
+
+const createBigImage = (parentElement) => {
+  const bigPhoto = document.createElement('img');
+  bigPhoto.classList.add('big-photo');
+  bigPhoto.classList.add('open');
+  parentElement.appendChild(bigPhoto);
+
+  return bigPhoto;
+}
+
+thumbnails.forEach((thumbnail) => {
+  thumbnail.addEventListener('click', () => {
+    // const bigBox = document.createElement('div');
+    // bigBox.classList.add('big-box');
+    // modalEl.appendChild(bigBox);
+
+    const bigBox = createContainer();
+    const bigPhoto = createBigImage(bigBox);
+    // const bigPhoto = document.createElement('img');
+    // bigPhoto.classList.add('big-photo');
+    // bigPhoto.classList.add('open');
+    // bigBox.appendChild(bigPhoto);
+
+    const activeThumbnail = thumbnail.querySelector('img');
+    const photoNr = activeThumbnail.getAttribute('data-original');
     modalEl.style.backgroundImage = `url(
       ./src/images/gallery/${photoNr}/${photoNr}.1.jpg
     )`;
 
-    bigPhoto.classList.add('big-photo');
-    bigPhoto.classList.add('open');
-    bigBox.appendChild(bigPhoto);
     bigPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.1.jpg`;
-    modalEl.classList.add('open');
 
     const filmStock = document.createElement('div');
     filmStock.classList.add('film-stock');
-    modalEl.appendChild(filmStock);
+
 
     let i = 1;
-
-    
-
     while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
       const smallPhoto = createThumbnail(photoNr, i);
 
@@ -73,23 +89,48 @@ previews.forEach((preview) => {
       i++;
     }
 
-  
+    modalEl.appendChild(filmStock);
 
+    // const closeEl = modalEl.querySelector('.modal-close');
+    // closeEl.addEventListener('click', () => {
+    //   modalEl.classList.remove('open');
+    //   setInterval(() => {
+    //     bigBox.remove();
+    //     bigPhoto.remove();
+    //   }, 500);
+
+    //   removeThumbnails();
+    //   // const smallPhotos = document.querySelectorAll('.small-photo');
+    //   // smallPhotos.forEach((smallPhoto) => {
+    //   //   smallPhoto.remove();
+    //   // });
+      
+    // });
     const closeEl = modalEl.querySelector('.modal-close');
     closeEl.addEventListener('click', () => {
-      modalEl.classList.remove('open');
-      setInterval(() => {
-        bigBox.remove();
-        bigPhoto.remove();
-      }, 500);
-
-      const smallPhotos = document.querySelectorAll('.small-photo');
-      smallPhotos.forEach((smallPhoto) => {
-        smallPhoto.remove();
-      });
+      closeGallery(bigBox, bigPhoto);
     });
+
+    modalEl.classList.add('open');
   });
 });
+
+const closeGallery = (bigBox, bigPhoto) => {
+  modalEl.classList.remove('open');
+  setInterval(() => {
+    bigBox.remove();
+    bigPhoto.remove();
+  }, 500);
+
+  removeThumbnails();
+}
+
+const removeThumbnails = () => {
+  const smallPhotos = document.querySelectorAll('.small-photo');
+  smallPhotos.forEach((smallPhoto) => {
+    smallPhoto.remove();
+  });
+}
 
 const createThumbnail = (photoNumber, iterationNumber) => {
   const smallPhoto = document.createElement('img');
@@ -127,9 +168,8 @@ const removeActiveAndGetIndex = (array) => {
 
 const changeBackgroundImagePrevious = (array, index) => {
   if (index === 0) {
-    modalEl.style.backgroundImage = `url(${
-      array[array.length - 1].src
-    }`;
+    modalEl.style.backgroundImage = 
+      `url(${array[array.length - 1].src}`;
   } else {
      modalEl.style.backgroundImage = `url(${array[index - 1].src}`;
   }
