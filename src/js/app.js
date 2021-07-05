@@ -50,33 +50,13 @@ thumbnails.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
     const bigBox = createContainer();
     const bigPhoto = createBigImage(bigBox);
-    
+
     const activeThumbnail = thumbnail.querySelector('img');
     const photoNr = activeThumbnail.getAttribute('data-original');
-    modalEl.style.backgroundImage = `url(
-      ./src/images/gallery/${photoNr}/${photoNr}.1.jpg
-    )`;
+    
+    initializeBigImageAndBackground(photoNr, bigPhoto);
+    createThumbnails(photoNr, bigPhoto);
 
-    bigPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.1.jpg`;
-
-    const filmStock = document.createElement('div');
-    filmStock.classList.add('film-stock');
-
-
-    let i = 1;
-    while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
-      const smallPhoto = createThumbnail(photoNr, i);
-
-      smallPhoto.addEventListener('click', () => {
-        disableActiveImage();
-        setActiveImage(smallPhoto, bigPhoto);
-      });
-
-      filmStock.appendChild(smallPhoto);
-      i++;
-    }
-
-    modalEl.appendChild(filmStock);   
     const closeEl = modalEl.querySelector('.modal-close');
     closeEl.addEventListener('click', () => {
       closeGallery(bigBox, bigPhoto);
@@ -85,6 +65,34 @@ thumbnails.forEach((thumbnail) => {
     modalEl.classList.add('open');
   });
 });
+
+const createThumbnails = (photoNr, bigPhoto) => {
+  const thumbList = document.createElement('div');
+  thumbList.classList.add('film-stock');
+
+  let i = 1;
+  while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
+    const smallPhoto = createThumbnail(photoNr, i);
+
+    smallPhoto.addEventListener('click', () => {
+      disableActiveImage();
+      setActiveImage(smallPhoto, bigPhoto);
+    });
+
+    thumbList.appendChild(smallPhoto);
+    i++;
+  }
+
+  modalEl.appendChild(thumbList);  
+}
+
+const initializeBigImageAndBackground = (photoNr, bigPhoto) => {
+  bigPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.1.jpg`;
+  modalEl.style.backgroundImage = `url(
+    ./src/images/gallery/${photoNr}/${photoNr}.1.jpg
+  )`;
+
+}
 
 const disableActiveImage = () => {
   modalEl.querySelectorAll('.small-photo').forEach((photo) => {
