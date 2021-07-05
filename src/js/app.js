@@ -48,17 +48,9 @@ const createBigImage = (parentElement) => {
 
 thumbnails.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
-    // const bigBox = document.createElement('div');
-    // bigBox.classList.add('big-box');
-    // modalEl.appendChild(bigBox);
-
     const bigBox = createContainer();
     const bigPhoto = createBigImage(bigBox);
-    // const bigPhoto = document.createElement('img');
-    // bigPhoto.classList.add('big-photo');
-    // bigPhoto.classList.add('open');
-    // bigBox.appendChild(bigPhoto);
-
+    
     const activeThumbnail = thumbnail.querySelector('img');
     const photoNr = activeThumbnail.getAttribute('data-original');
     modalEl.style.backgroundImage = `url(
@@ -76,37 +68,15 @@ thumbnails.forEach((thumbnail) => {
       const smallPhoto = createThumbnail(photoNr, i);
 
       smallPhoto.addEventListener('click', () => {
-        // modalEl.querySelectorAll('.small-photo').forEach((photo) => {
-        //   photo.classList.remove('active');
-        // });
         disableActiveImage();
         setActiveImage(smallPhoto, bigPhoto);
-        // smallPhoto.classList.add('active');
-        // bigPhoto.src = smallPhoto.src;
-        // modalEl.style.backgroundImage = `url(${smallPhoto.src})`;
       });
 
       filmStock.appendChild(smallPhoto);
       i++;
     }
 
-    modalEl.appendChild(filmStock);
-
-    // const closeEl = modalEl.querySelector('.modal-close');
-    // closeEl.addEventListener('click', () => {
-    //   modalEl.classList.remove('open');
-    //   setInterval(() => {
-    //     bigBox.remove();
-    //     bigPhoto.remove();
-    //   }, 500);
-
-    //   removeThumbnails();
-    //   // const smallPhotos = document.querySelectorAll('.small-photo');
-    //   // smallPhotos.forEach((smallPhoto) => {
-    //   //   smallPhoto.remove();
-    //   // });
-      
-    // });
+    modalEl.appendChild(filmStock);   
     const closeEl = modalEl.querySelector('.modal-close');
     closeEl.addEventListener('click', () => {
       closeGallery(bigBox, bigPhoto);
