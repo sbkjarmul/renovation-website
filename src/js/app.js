@@ -58,14 +58,18 @@ previews.forEach((preview) => {
 
     let i = 1;
 
-    while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
-      const smallPhoto = document.createElement('img');
-      smallPhoto.classList.add('small-photo');
-      smallPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`;
+    
 
-      if (i === 1) {
-        smallPhoto.classList.add('active');
-      }
+    while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
+      // const smallPhoto = document.createElement('img');
+      // smallPhoto.classList.add('small-photo');
+      // smallPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`;
+
+      const smallPhoto = createThumbnail(photoNr, i);
+
+      // if (i === 1) {
+      //   smallPhoto.classList.add('active');
+      // }
 
       smallPhoto.addEventListener('click', () => {
         modalEl.querySelectorAll('.small-photo').forEach((photo) => {
@@ -80,6 +84,8 @@ previews.forEach((preview) => {
       filmStock.appendChild(smallPhoto);
       i++;
     }
+
+  
 
     const closeEl = modalEl.querySelector('.modal-close');
     closeEl.addEventListener('click', () => {
@@ -96,6 +102,18 @@ previews.forEach((preview) => {
     });
   });
 });
+
+const createThumbnail = (photoNumber, iterationNumber) => {
+  const smallPhoto = document.createElement('img');
+  smallPhoto.classList.add('small-photo');
+  smallPhoto.src = `./src/images/gallery/${photoNumber}/${photoNumber}.${iterationNumber}.jpg`;
+
+  if (iterationNumber === 1) {
+    smallPhoto.classList.add('active');
+  }
+
+  return smallPhoto;
+}
 
 function doesImgExists(url) {
   var xhr = new XMLHttpRequest();
