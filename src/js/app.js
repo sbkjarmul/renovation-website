@@ -65,11 +65,11 @@ previews.forEach((preview) => {
       // smallPhoto.classList.add('small-photo');
       // smallPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`;
 
-      const smallPhoto = createThumbnail(photoNr, i);
-
-      // if (i === 1) {
+         // if (i === 1) {
       //   smallPhoto.classList.add('active');
       // }
+
+      const smallPhoto = createThumbnail(photoNr, i);
 
       smallPhoto.addEventListener('click', () => {
         modalEl.querySelectorAll('.small-photo').forEach((photo) => {
@@ -127,17 +127,30 @@ function doesImgExists(url) {
   return true;
 }
 
+const removeActiveAndGetIndex = (array) => {
+  let index = array.findIndex((photo) => {
+    return photo.classList.contains('active');
+  });
+
+  smallPhotos[index].classList.remove('active');
+
+  return index;
+}
+
 function changeImage(arrow) {
   const isLeft = arrow.classList.contains('left');
   const isRight = arrow.classList.contains('right');
   let smallPhotos = Array.from(document.querySelectorAll('.small-photo'));
 
   if (isLeft) {
-    let index = smallPhotos.findIndex((photo) => {
-      return photo.classList.contains('active');
-    });
+    // let index = smallPhotos.findIndex((photo) => {
+    //   return photo.classList.contains('active');
+    // });
 
-    smallPhotos[index].classList.remove('active');
+    // smallPhotos[index].classList.remove('active');
+
+    let index = removeActiveAndGetIndex(smallPhotos);
+
     if (index === 0) {
       smallPhotos[smallPhotos.length - 1].classList.add('active');
       const bigPhoto = modalEl.querySelector('.big-photo');
