@@ -14,12 +14,8 @@ contactBtn.addEventListener('click', (e) => {
 
 arrows.forEach((arrow) => {
   arrow.addEventListener('click', (e) => {
-    changeImage(e.target);
+    changeImages(e.target);
   });
-});
-
-document.addEventListener('keyup', (e) => {
-  changeImage(e);
 });
 
 burgerEl.addEventListener('click', (e) => {
@@ -61,14 +57,6 @@ previews.forEach((preview) => {
     
 
     while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
-      // const smallPhoto = document.createElement('img');
-      // smallPhoto.classList.add('small-photo');
-      // smallPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`;
-
-         // if (i === 1) {
-      //   smallPhoto.classList.add('active');
-      // }
-
       const smallPhoto = createThumbnail(photoNr, i);
 
       smallPhoto.addEventListener('click', () => {
@@ -132,57 +120,66 @@ const removeActiveAndGetIndex = (array) => {
     return photo.classList.contains('active');
   });
 
-  smallPhotos[index].classList.remove('active');
+  array[index].classList.remove('active');
 
   return index;
 }
 
-function changeImage(arrow) {
+const changeBackgroundImagePrevious = (array, index) => {
+  if (index === 0) {
+    modalEl.style.backgroundImage = `url(${
+      array[array.length - 1].src
+    }`;
+  } else {
+     modalEl.style.backgroundImage = `url(${array[index - 1].src}`;
+  }
+}
+
+const changeBackgroundImageNext = (array, index) => {
+  if (index === array.length - 1) {
+    modalEl.style.backgroundImage = `url(${array[0].src}`;
+  } else {
+    modalEl.style.backgroundImage = `url(${array[index + 1].src}`;
+  }
+}
+
+const changeBigImagePrevious = (array, index) => {
+  const bigPhoto = modalEl.querySelector('.big-photo');
+
+  if (index === 0) {
+    array[array.length - 1].classList.add('active');
+    bigPhoto.src = array[array.length - 1].src;
+  } else {
+    array[index - 1].classList.add('active');
+    bigPhoto.src = array[index - 1].src;
+  }
+}
+
+const changeBigImageNext = (array, index) => {
+  const bigPhoto = modalEl.querySelector('.big-photo');
+
+  if (index === array.length - 1) {
+    array[0].classList.add('active');
+    bigPhoto.src = array[0].src;
+  } else {
+    array[index + 1].classList.add('active');
+    bigPhoto.src = array[index + 1].src;
+  }
+}
+
+function changeImages(arrow) {
   const isLeft = arrow.classList.contains('left');
   const isRight = arrow.classList.contains('right');
   let smallPhotos = Array.from(document.querySelectorAll('.small-photo'));
+  let index = removeActiveAndGetIndex(smallPhotos);
 
   if (isLeft) {
-    // let index = smallPhotos.findIndex((photo) => {
-    //   return photo.classList.contains('active');
-    // });
-
-    // smallPhotos[index].classList.remove('active');
-
-    let index = removeActiveAndGetIndex(smallPhotos);
-
-    if (index === 0) {
-      smallPhotos[smallPhotos.length - 1].classList.add('active');
-      const bigPhoto = modalEl.querySelector('.big-photo');
-      bigPhoto.src = smallPhotos[smallPhotos.length - 1].src;
-      modalEl.style.backgroundImage = `url(${
-        smallPhotos[smallPhotos.length - 1].src
-      }`;
-    } else {
-      smallPhotos[index - 1].classList.add('active');
-
-      const bigPhoto = modalEl.querySelector('.big-photo');
-      bigPhoto.src = smallPhotos[index - 1].src;
-      modalEl.style.backgroundImage = `url(${smallPhotos[index - 1].src}`;
-    }
+    changeBackgroundImagePrevious(smallPhotos, index);
+    changeBigImagePrevious(smallPhotos, index);
   }  
   
   if (isRight) {
-    let index = smallPhotos.findIndex((photo) => {
-      return photo.classList.contains('active');
-    });
-
-    smallPhotos[index].classList.remove('active');
-    if (index === smallPhotos.length - 1) {
-      smallPhotos[0].classList.add('active');
-      const bigPhoto = modalEl.querySelector('.big-photo');
-      bigPhoto.src = smallPhotos[0].src;
-      modalEl.style.backgroundImage = `url(${smallPhotos[0].src}`;
-    } else {
-      smallPhotos[index + 1].classList.add('active');
-      const bigPhoto = modalEl.querySelector('.big-photo');
-      bigPhoto.src = smallPhotos[index + 1].src;
-      modalEl.style.backgroundImage = `url(${smallPhotos[index + 1].src}`;
-    }
+    changeBigImageNext(smallPhotos, index);
+    changeBackgroundImageNext(smallPhotos, index);
   }
 }
