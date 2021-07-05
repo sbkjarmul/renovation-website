@@ -8,10 +8,6 @@ const arrows = document.querySelectorAll('.control');
 
 const contactBtn = document.querySelector('.footer__button');
 
-contactBtn.addEventListener('click', (e) => {
-  console.log(e.target);
-});
-
 arrows.forEach((arrow) => {
   arrow.addEventListener('click', (e) => {
     changeImages(e.target);
@@ -48,23 +44,30 @@ const createBigImage = (parentElement) => {
 
 thumbnails.forEach((thumbnail) => {
   thumbnail.addEventListener('click', () => {
-    const bigBox = createContainer();
-    const bigPhoto = createBigImage(bigBox);
-
-    const activeThumbnail = thumbnail.querySelector('img');
-    const photoNr = activeThumbnail.getAttribute('data-original');
-    
-    initializeBigImageAndBackground(photoNr, bigPhoto);
-    createThumbnails(photoNr, bigPhoto);
-
-    const closeEl = modalEl.querySelector('.modal-close');
-    closeEl.addEventListener('click', () => {
-      closeGallery(bigBox, bigPhoto);
-    });
-
-    modalEl.classList.add('open');
+    createGallery(thumbnail);
+    openGallery();
   });
 });
+
+const createGallery = (thumbnail) => {
+  const bigBox = createContainer();
+  const bigPhoto = createBigImage(bigBox);
+
+  const activeThumbnail = thumbnail.querySelector('img');
+  const photoNr = activeThumbnail.getAttribute('data-original');
+  
+  initializeBigImageAndBackground(photoNr, bigPhoto);
+  createThumbnails(photoNr, bigPhoto);
+
+  const closeEl = modalEl.querySelector('.modal-close');
+  closeEl.addEventListener('click', () => {
+    closeGallery(bigBox, bigPhoto);
+  });
+}
+
+const openGallery = () => {
+  modalEl.classList.add('open');
+}
 
 const createThumbnails = (photoNr, bigPhoto) => {
   const thumbList = document.createElement('div');
@@ -88,10 +91,8 @@ const createThumbnails = (photoNr, bigPhoto) => {
 
 const initializeBigImageAndBackground = (photoNr, bigPhoto) => {
   bigPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.1.jpg`;
-  modalEl.style.backgroundImage = `url(
-    ./src/images/gallery/${photoNr}/${photoNr}.1.jpg
-  )`;
-
+  modalEl.style.backgroundImage = 
+    `url(./src/images/gallery/${photoNr}/${photoNr}.1.jpg)`;
 }
 
 const disableActiveImage = () => {
