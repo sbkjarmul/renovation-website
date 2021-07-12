@@ -36,7 +36,7 @@ section {
   background-attachment: fixed;
   overflow: hidden;
   display: none;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in;
 
   &.active {
     display: flex;
@@ -44,6 +44,8 @@ section {
     justify-content: center;
     align-items: center;
     transition: all 0.5s ease;
+    top: 0;
+    opacity: 1;
   }
 
   &:before {
@@ -98,6 +100,7 @@ section {
 }
 
 .navbar {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -107,14 +110,13 @@ section {
   left: 0;
   right: 0;
   color: white;
-  position: relative;
   min-height: 12.5vh;
   background: inherit;
   background-attachment: fixed;
   overflow: hidden;
   padding: 0 7.5rem;
   z-index: 1;
-
+  
   &:before {
     content: '';
     background: inherit;
@@ -461,7 +463,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 0;
+    grid-gap: 0px;
 
     .gallery-img {
       position: relative;
@@ -1075,7 +1077,7 @@ section {
       .contact__form {
         .contact__header {
           margin: auto;
-          padding-bottom: 32px;
+          padding-bottom: 32gitpx;
         }
 
         .contact__label {
@@ -1342,8 +1344,19 @@ section {
   }
 
   #services {
+
     padding-top: 20rem;
     clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
+  }
+
+  #projects {
+    margin-bottom: 15vh;
+    .gallery {
+      .gallery-img {
+        width: 100%;
+        height: 500px;
+      }
+    }
   }
 }
 
