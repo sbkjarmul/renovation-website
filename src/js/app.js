@@ -14,24 +14,39 @@ const sendEmailButton = document.querySelector('.contact__button');
 
 closeFormButton.addEventListener('click', (e) => {
   e.preventDefault();
+  if (contactWindow.classList.contains('shake')) {
+    contactWindow.classList.remove('shake');
+  }
+
   contactWindow.classList.add('contact--disabled');
   contactContainer.classList.add('contact__container--disabled');
+  contactWindow.classList.remove('fall-in');
 });
 
 contactButton.addEventListener('click', (e) => {
   contactWindow.classList.remove('contact--disabled');
   contactContainer.classList.remove('contact__container--disabled');
+  contactWindow.classList.add('fall-in');
 });
 
 sendEmailButton.addEventListener('click', (e) => {
   e.preventDefault();
+  if (contactWindow.classList.contains('shake')) {
+    contactWindow.classList.remove('shake');
+  }
+  
   contactWindow.classList.add('contact--disabled');
   contactContainer.classList.add('contact__container--disabled');
+  contactWindow.classList.remove('fall-in');
 });
 
 contactContainer.addEventListener('click', (e) => {
+  if (contactWindow.classList.contains('fall-in')) {
+    contactWindow.classList.remove('fall-in');
+  }
+
   if (e.target.classList.contains('contact__container')) {
-    contactWindow.classList.add('shake');
+    contactWindow.classList.toggle('shake');
   }
 });
 

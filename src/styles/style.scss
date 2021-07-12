@@ -780,8 +780,6 @@ section {
     width: 75%;
     height: 75%;
     opacity: 1;
-    animation-name: fall-in;
-    animation-duration: 1s;
     transition-duration: none;
     box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.1), 
     -20px -20px 40px rgba(255, 255, 255, .2);
@@ -894,6 +892,11 @@ section {
   opacity: 0;
   pointer-events: none;
   z-index: -1;
+}
+
+.fall-in {
+  animation-name: fall-in;
+  animation-duration: 1s;
 }
 
 .shake {
