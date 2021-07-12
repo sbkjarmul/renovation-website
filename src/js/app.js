@@ -6,7 +6,34 @@ const modalEl = document.querySelector('.modal');
 const thumbnails = document.querySelectorAll('.gallery-img');
 const arrows = document.querySelectorAll('.control');
 
-const contactBtn = document.querySelector('.footer__button');
+const contactButton = document.querySelector('.footer__button');
+const closeFormButton = document.querySelector('.contact__close');
+const contactContainer = document.querySelector('.contact__container');
+const contactWindow = document.querySelector('.contact');
+const sendEmailButton = document.querySelector('.contact__button');
+
+closeFormButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  contactWindow.classList.add('contact--disabled');
+  contactContainer.classList.add('contact__container--disabled');
+});
+
+contactButton.addEventListener('click', (e) => {
+  contactWindow.classList.remove('contact--disabled');
+  contactContainer.classList.remove('contact__container--disabled');
+});
+
+sendEmailButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  contactWindow.classList.add('contact--disabled');
+  contactContainer.classList.add('contact__container--disabled');
+});
+
+contactContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('contact__container')) {
+    contactWindow.classList.add('shake');
+  }
+});
 
 arrows.forEach((arrow) => {
   arrow.addEventListener('click', (e) => {
@@ -23,6 +50,22 @@ if (screen.width < 1100) {
 } else {
   logoEl.src = './src/images/brand.png';
   menuEl.classList.remove('active');
+}
+
+const createGallery = (thumbnail) => {
+  const bigBox = createContainer();
+  const bigPhoto = createBigImage(bigBox);
+
+  const activeThumbnail = thumbnail.querySelector('img');
+  const photoNr = activeThumbnail.getAttribute('data-original');
+  
+  initializeBigImageAndBackground(photoNr, bigPhoto);
+  createThumbnails(photoNr, bigPhoto);
+
+  const closeEl = modalEl.querySelector('.modal-close');
+  closeEl.addEventListener('click', () => {
+    closeGallery(bigBox, bigPhoto);
+  });
 }
 
 const createContainer = () => {
@@ -49,24 +92,14 @@ thumbnails.forEach((thumbnail) => {
   });
 });
 
-const createGallery = (thumbnail) => {
-  const bigBox = createContainer();
-  const bigPhoto = createBigImage(bigBox);
-
-  const activeThumbnail = thumbnail.querySelector('img');
-  const photoNr = activeThumbnail.getAttribute('data-original');
-  
-  initializeBigImageAndBackground(photoNr, bigPhoto);
-  createThumbnails(photoNr, bigPhoto);
-
-  const closeEl = modalEl.querySelector('.modal-close');
-  closeEl.addEventListener('click', () => {
-    closeGallery(bigBox, bigPhoto);
-  });
-}
-
 const openGallery = () => {
   modalEl.classList.add('open');
+}
+
+const initializeBigImageAndBackground = (photoNr, bigPhoto) => {
+  bigPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.1.jpg`;
+  modalEl.style.backgroundImage = 
+    `url(./src/images/gallery/${photoNr}/${photoNr}.1.jpg)`;
 }
 
 const createThumbnails = (photoNr, bigPhoto) => {
@@ -87,12 +120,6 @@ const createThumbnails = (photoNr, bigPhoto) => {
   }
 
   modalEl.appendChild(thumbList);  
-}
-
-const initializeBigImageAndBackground = (photoNr, bigPhoto) => {
-  bigPhoto.src = `./src/images/gallery/${photoNr}/${photoNr}.1.jpg`;
-  modalEl.style.backgroundImage = 
-    `url(./src/images/gallery/${photoNr}/${photoNr}.1.jpg)`;
 }
 
 const disableActiveImage = () => {
@@ -148,6 +175,23 @@ function doesImgExists(url) {
   return true;
 }
 
+function changeImages(arrow) {
+  const isLeft = arrow.classList.contains('left');
+  const isRight = arrow.classList.contains('right');
+  let smallPhotos = Array.from(document.querySelectorAll('.small-photo'));
+  let index = removeActiveAndGetIndex(smallPhotos);
+
+  if (isLeft) {
+    changeBackgroundImagePrevious(smallPhotos, index);
+    changeBigImagePrevious(smallPhotos, index);
+  }  
+  
+  if (isRight) {
+    changeBigImageNext(smallPhotos, index);
+    changeBackgroundImageNext(smallPhotos, index);
+  }
+}
+
 const removeActiveAndGetIndex = (array) => {
   let index = array.findIndex((photo) => {
     return photo.classList.contains('active');
@@ -196,22 +240,5 @@ const changeBigImageNext = (array, index) => {
   } else {
     array[index + 1].classList.add('active');
     bigPhoto.src = array[index + 1].src;
-  }
-}
-
-function changeImages(arrow) {
-  const isLeft = arrow.classList.contains('left');
-  const isRight = arrow.classList.contains('right');
-  let smallPhotos = Array.from(document.querySelectorAll('.small-photo'));
-  let index = removeActiveAndGetIndex(smallPhotos);
-
-  if (isLeft) {
-    changeBackgroundImagePrevious(smallPhotos, index);
-    changeBigImagePrevious(smallPhotos, index);
-  }  
-  
-  if (isRight) {
-    changeBigImageNext(smallPhotos, index);
-    changeBackgroundImageNext(smallPhotos, index);
   }
 }
