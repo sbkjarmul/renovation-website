@@ -1500,8 +1500,9 @@ section {
     margin-bottom: 240px !important;
   }
   .contact__container {
-    top: 5% !important;
+    top: 0% !important;
     z-index: 100;
+    height: 100vh;
   }
   .contact__container .contact {
     top: 0 !important;
