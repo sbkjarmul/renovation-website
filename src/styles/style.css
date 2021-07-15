@@ -1500,7 +1500,7 @@ section {
     margin-bottom: 240px !important;
   }
   .contact__container {
-    top: 0 !important;
+    top: 5% !important;
     z-index: 100;
   }
   .contact__container .contact {
