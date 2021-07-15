@@ -1160,8 +1160,20 @@ section {
   }
 
   #projects {
-    padding: 0 0rem !important;
+    padding: 0 2.5rem !important;
     margin-bottom: 100px;
+    .gallery {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 12px;
+     ;
+
+      .gallery-img {
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3),
+        -4px -4px 16px rgba(0, 0, 0, 0.3);
+      }
+    }
+   
   }
 
   #footer {
@@ -1184,7 +1196,7 @@ section {
 
   .contact__container {
     z-index: 100;
-    
+
     .contact {
       width: 100%;
       min-height: fit-content;

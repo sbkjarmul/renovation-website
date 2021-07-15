@@ -1464,8 +1464,19 @@ section {
     font-size: 12px;
   }
   #projects {
-    padding: 0 0rem !important;
+    padding: 0 2.5rem !important;
     margin-bottom: 100px;
+  }
+  #projects .gallery {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    grid-gap: 12px;
+  }
+  #projects .gallery .gallery-img {
+    -webkit-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3), -4px -4px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3), -4px -4px 16px rgba(0, 0, 0, 0.3);
   }
   #footer .footer__topbar {
     height: -webkit-fit-content !important;
