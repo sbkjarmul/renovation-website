@@ -1378,6 +1378,9 @@ section {
 }
 
 @media (max-width: 575.98px) {
+  .menu {
+    padding-bottom: 1.5rem;
+  }
   .menu.active {
     height: 52%;
   }
