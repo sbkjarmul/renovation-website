@@ -34,8 +34,6 @@ section {
     pointer-events: all;
     opacity: 1;
   }
-
-
 }
 
 #main-page {
@@ -1270,6 +1268,10 @@ section {
 }
 
 @media (max-width: 991.98px) {
+  .back__button {
+    display: none;
+  }
+
   .navbar {
     position: fixed!important;
     justify-content: space-between;
