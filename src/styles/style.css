@@ -1475,8 +1475,8 @@ section {
     grid-gap: 12px;
   }
   #projects .gallery .gallery-img {
-    -webkit-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3), -4px -4px 16px rgba(0, 0, 0, 0.3);
-            box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3), -4px -4px 16px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2), -4px -4px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2), -4px -4px 16px rgba(0, 0, 0, 0.2);
   }
   #footer .footer__topbar {
     height: -webkit-fit-content !important;
@@ -1495,9 +1495,11 @@ section {
     margin-bottom: 240px !important;
   }
   .contact__container {
+    top: 0 !important;
     z-index: 100;
   }
   .contact__container .contact {
+    top: 0 !important;
     width: 100%;
     min-height: -webkit-fit-content;
     min-height: -moz-fit-content;

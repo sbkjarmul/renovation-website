@@ -1169,8 +1169,8 @@ section {
      ;
 
       .gallery-img {
-        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3),
-        -4px -4px 16px rgba(0, 0, 0, 0.3);
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2),
+        -4px -4px 16px rgba(0, 0, 0, 0.2);
       }
     }
    
@@ -1195,9 +1195,11 @@ section {
   }
 
   .contact__container {
+    top: 0!important;
     z-index: 100;
 
     .contact {
+      top: 0!important;
       width: 100%;
       min-height: fit-content;
       height: 100vh;
