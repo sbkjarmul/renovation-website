@@ -1281,7 +1281,7 @@ section {
   }
   100% {
     opacity: 1;
-    trasform: translateY(0);
+    trasform: translateY(5%);
   }
 }
 
@@ -1293,7 +1293,7 @@ section {
   }
   100% {
     opacity: 1;
-    trasform: translateY(0);
+    trasform: translateY(5%);
   }
 }
 
