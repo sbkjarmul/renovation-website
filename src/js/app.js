@@ -12,6 +12,7 @@ const contactContainer = document.querySelector('.contact__container');
 const contactWindow = document.querySelector('.contact');
 const sendEmailButton = document.querySelector('.contact__button');
 const heroButton = document.querySelector('.hero__button');
+const backButton = document.querySelector('.back__button');
 
 if (screen.width < 1100) {
   logoEl.src = './src/images/brand-mobile.png';
@@ -19,6 +20,15 @@ if (screen.width < 1100) {
   logoEl.src = './src/images/brand.png';
   menuEl.classList.remove('active');
 }
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 1080) {
+    backButton.classList.add('active');
+  } else {
+    backButton.classList.remove('active');
+  }
+})
+
 
 const smoothScroll = new SmoothScroll('a[href*="#"]', {
   speed: 800

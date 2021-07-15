@@ -17,6 +17,27 @@ section {
   width: 100vw;
 }
 
+.back__button {
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  z-index: 50;
+  background: none;
+  border: none;
+  font-size: 64px;
+  color: #ffce00;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+
+.back__button.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
 #main-page {
   background: url("../images/hero1.jpg");
   background-size: cover;
