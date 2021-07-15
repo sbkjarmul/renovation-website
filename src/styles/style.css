@@ -1379,6 +1379,9 @@ section {
 
 @media (max-width: 575.98px) {
   .menu {
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
     padding-bottom: 1.5rem;
   }
   .menu.active {

@@ -1055,6 +1055,7 @@ section {
 
 @media (max-width: 575.98px) {
   .menu {
+    min-height: fit-content;
     padding-bottom: 1.5rem;
     
     &.active {
