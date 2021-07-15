@@ -1101,8 +1101,8 @@ section {
 
   #services {
     padding-top: 12.5rem !important;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 
     h1 {
       font-size: 1.5rem;
@@ -1116,9 +1116,28 @@ section {
       font-weight: 600;
     }
 
-    .service {
-      margin: 0 !important;
+    .services-box {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .service {
+        justify-content: flex-start!important;
+        height: 240px;
+        .service-img {
+          width: 96px!important;
+          height: 96px!important;
+        }
+  
+        p {
+          width: 120px;
+          font-size: 12px;
+        }
+      }
     }
+
+    
   }
 
   #projects {
