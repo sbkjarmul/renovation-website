@@ -1203,8 +1203,8 @@ section {
     .contact {
       top: 0!important;
       width: 100%;
-      min-height: fit-content;
-      height: 100vh;
+      min-height: fit-content!important;
+      height: 100vh!important;
       padding-bottom: 5rem;
 
       .contact__form {
