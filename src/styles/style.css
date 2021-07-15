@@ -1108,8 +1108,8 @@ section {
 .contact__container .contact .contact__form .contact__input {
   padding: 12px;
   margin-bottom: 24px;
-  -webkit-box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.1), -8px -8px 20px white !important;
-          box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.1), -8px -8px 20px white !important;
+  -webkit-box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.1), -8px -8px 20px rgba(255, 255, 255, 0.5) !important;
+          box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.1), -8px -8px 20px rgba(255, 255, 255, 0.5) !important;
   border: none;
   z-index: 0;
   -webkit-transition-duration: 1s ease;
@@ -1328,7 +1328,7 @@ section {
     font-size: 1rem;
   }
   .navbar {
-    padding: 0.5rem 0;
+    padding: 0.5rem 2rem !important;
     min-height: 3.5rem;
   }
   .navbar .logo img {
@@ -1473,6 +1473,18 @@ section {
 }
 
 @media (max-width: 991.98px) {
+  .navbar {
+    position: fixed !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .navbar .navbar-nav {
+    display: none !important;
+  }
+  .navbar .burger {
+    display: block !important;
+  }
   .hero__caption {
     position: absolute;
     top: 75% !important;
@@ -1504,17 +1516,6 @@ section {
   .hero__caption .hero__header--small {
     display: none;
     font-size: 41px;
-  }
-  .navbar {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .navbar .navbar-nav {
-    display: none;
-  }
-  .navbar .burger {
-    display: block;
   }
   #about .about-img {
     width: 70% !important;

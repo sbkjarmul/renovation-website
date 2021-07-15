@@ -11,6 +11,14 @@ const closeFormButton = document.querySelector('.contact__close');
 const contactContainer = document.querySelector('.contact__container');
 const contactWindow = document.querySelector('.contact');
 const sendEmailButton = document.querySelector('.contact__button');
+const heroButton = document.querySelector('.hero__button');
+
+if (screen.width < 1100) {
+  logoEl.src = './src/images/brand-mobile.png';
+} else {
+  logoEl.src = './src/images/brand.png';
+  menuEl.classList.remove('active');
+}
 
 closeFormButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -24,6 +32,12 @@ closeFormButton.addEventListener('click', (e) => {
 });
 
 contactButton.addEventListener('click', (e) => {
+  contactWindow.classList.remove('contact--disabled');
+  contactContainer.classList.remove('contact__container--disabled');
+  contactWindow.classList.add('fall-in');
+});
+
+heroButton.addEventListener('click', (e) => {
   contactWindow.classList.remove('contact--disabled');
   contactContainer.classList.remove('contact__container--disabled');
   contactWindow.classList.add('fall-in');
@@ -60,12 +74,6 @@ burgerEl.addEventListener('click', (e) => {
   menuEl.classList.toggle('active');
 });
 
-if (screen.width < 1100) {
-  logoEl.src = './src/images/brand-mobile.png';
-} else {
-  logoEl.src = './src/images/brand.png';
-  menuEl.classList.remove('active');
-}
 
 const createGallery = (thumbnail) => {
   const bigBox = createContainer();
