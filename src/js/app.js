@@ -20,6 +20,10 @@ if (screen.width < 1100) {
   menuEl.classList.remove('active');
 }
 
+const smoothScroll = new SmoothScroll('a[href*="#"]', {
+  speed: 800
+});
+
 closeFormButton.addEventListener('click', (e) => {
   e.preventDefault();
   if (contactWindow.classList.contains('shake')) {
@@ -265,3 +269,4 @@ const changeBigImageNext = (array, index) => {
     bigPhoto.src = array[index + 1].src;
   }
 }
+
