@@ -153,7 +153,7 @@ const createLoader = () => {
   loader.classList.add('loading');
   loader.classList.add('loading--transparent');
   loaderItem.classList.add('loading-item');
-  loaderItem.src = '/src/images/loading.png';
+  loaderItem.src = './src/images/loading.png';
 
   body.appendChild(loader);
   loader.appendChild(loaderItem);
