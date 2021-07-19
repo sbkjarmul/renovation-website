@@ -30,7 +30,7 @@ window.addEventListener("scroll", () => {
   }
 })
 
-body.addEventListener("load", () => {
+window.addEventListener("load", () => {
   setTimeout(() => {
     loadingScreen.parentElement.removeChild(loadingScreen);
   }, 2000);
