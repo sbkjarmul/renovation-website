@@ -30,11 +30,21 @@ window.addEventListener("scroll", () => {
   }
 })
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loadingScreen.parentElement.removeChild(loadingScreen);
-  }, 2000);
-});
+const isPageLoaded = document.readyState === 'complete';
+
+if (isPageLoaded) {
+  console.log('elo');
+  loadingScreen.parentElement.removeChild(loadingScreen);
+} else {
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      console.log('loading');
+      loadingScreen.parentElement.removeChild(loadingScreen);
+    }, 2500);
+  });
+}
+
+
 
 const smoothScroll = new SmoothScroll('a[href*="#"]', {
   speed: 800
