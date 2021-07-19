@@ -30,17 +30,15 @@ window.addEventListener("scroll", () => {
   }
 })
 
-window.addEventListener("load", () => {
-  // setTimeout(() => {
-  //   loadingScreen.parentElement.removeChild(loadingScreen);
-  // }, 2500);
-  loadingScreen.parentElement.removeChild(loadingScreen);
+body.addEventListener("load", () => {
+  setTimeout(() => {
+    loadingScreen.parentElement.removeChild(loadingScreen);
+  }, 2000);
 });
 
 const smoothScroll = new SmoothScroll('a[href*="#"]', {
   speed: 800
 });
-
 
 
 closeFormButton.addEventListener('click', (e) => {
