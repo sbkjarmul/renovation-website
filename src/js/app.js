@@ -152,7 +152,7 @@ const openGallery = () => {
   setTimeout(() => {
     modalEl.classList.add('open');
     loader.parentElement.removeChild(loader);
-  }, 3000);
+  }, 2000);
 }
 
 const createLoader = () => {
@@ -165,8 +165,8 @@ const createLoader = () => {
   loaderItem.classList.add('loading-item');
   loaderItem.src = './src/images/loading.png';
 
-  body.appendChild(loader);
   loader.appendChild(loaderItem);
+  body.appendChild(loader);
 
   return loader;
 }
@@ -182,7 +182,7 @@ const createThumbnails = (photoNr, bigPhoto) => {
   thumbList.classList.add('film-stock');
 
   let i = 1;
-  while (doesImgExists(`./src/images/gallery/${photoNr}/${photoNr}.${i}.jpg`)) {
+  while (doesImgExists(`./src/images/gallery/${photoNr}/thumbs/${photoNr}.${i}.jpg`)) {
     const smallPhoto = createThumbnail(photoNr, i);
 
     smallPhoto.addEventListener('click', () => {

@@ -92,7 +92,6 @@ section {
 }
 
 #main-page {
-  background: url("../images/hero1.jpg");
   background-size: cover;
   background-position: center;
   font-family: 'Poppis', sans-serif;
@@ -606,7 +605,6 @@ section {
 
 #services {
   background-color: #d6d6d6;
-  background-image: url("../images/marmur.jpg");
   background-size: cover;
   background-blend-mode: overlay;
   -webkit-clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0% 100%);
