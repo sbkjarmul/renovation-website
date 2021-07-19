@@ -13,6 +13,7 @@ const contactWindow = document.querySelector('.contact');
 const sendEmailButton = document.querySelector('.contact__button');
 const heroButton = document.querySelector('.hero__button');
 const backButton = document.querySelector('.back__button');
+const loadingScreen = document.querySelector('.loading');
 
 if (screen.width < 1100) {
   logoEl.src = './src/images/brand-mobile.png';
@@ -29,6 +30,12 @@ window.addEventListener("scroll", () => {
   }
 })
 
+window.addEventListener("load", () => {
+  // setTimeout(() => {
+  //   loadingScreen.parentElement.removeChild(loadingScreen);
+  // }, 2500);
+  loadingScreen.parentElement.removeChild(loadingScreen);
+});
 
 const smoothScroll = new SmoothScroll('a[href*="#"]', {
   speed: 800
@@ -132,7 +139,28 @@ thumbnails.forEach((thumbnail) => {
 });
 
 const openGallery = () => {
-  modalEl.classList.add('open');
+  const loader = createLoader();
+
+  setTimeout(() => {
+    modalEl.classList.add('open');
+    loader.parentElement.removeChild(loader);
+  }, 3000);
+}
+
+const createLoader = () => {
+  const body = document.querySelector('body');
+  const loader = document.createElement('section');
+  const loaderItem = document.createElement('img');
+
+  loader.classList.add('loading');
+  loader.classList.add('loading--transparent');
+  loaderItem.classList.add('loading-item');
+  loaderItem.src = '/src/images/loading.png';
+
+  body.appendChild(loader);
+  loader.appendChild(loaderItem);
+
+  return loader;
 }
 
 const initializeBigImageAndBackground = (photoNr, bigPhoto) => {

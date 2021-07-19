@@ -16,6 +16,42 @@ section {
   width: 100vw;
 }
 
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.loading--transparent {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .loading-item {
+    width: auto;
+    height: 100px;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
 .back__button {
   position: fixed;
   right: 5rem;
