@@ -44,12 +44,9 @@ if (isPageLoaded) {
   });
 }
 
-
-
 const smoothScroll = new SmoothScroll('a[href*="#"]', {
   speed: 800
 });
-
 
 closeFormButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -318,3 +315,4 @@ const changeBigImageNext = (array, index) => {
   }
 }
 
+var lazyLoadInstance = new LazyLoad({});

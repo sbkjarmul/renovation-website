@@ -21,9 +21,12 @@
     <link rel="stylesheet" href="./src/styles/style.css" />
     <title>KacperSuchora</title>
   </head>
-  <body>
+  <body id="my-scrollbar">
     <section class="loading">
-      <img src="./src/images/loading-y.png" class="loading-item"></div>
+      <img 
+      data-src="./src/images/loading-y.png"
+      class="loading-item lazy"
+      />
     </section>
     <section id="main-page">
       <div class="menu">
@@ -47,7 +50,11 @@
       </div>
       <nav class="navbar">
         <a class="logo" href="#main-page">
-          <img src="./src/images/brand.png" alt="logo" />
+          <img 
+            class="lazy"
+            data-src="./src/images/brand.png"
+            alt="logo" 
+          />
         </a>
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -124,57 +131,86 @@
         <div class="services-box">
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/paiting.png" alt="paiting" />
+              <img 
+                data-src="./src/images/ico/paiting.png" 
+                alt="paiting" 
+                class="lazy"
+              />
             </div>
             <p>Prace malarskie</p>
           </div>
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/wallpaper.png" alt="wallpapering" />
+              <img 
+                data-src="./src/images/ico/wallpaper.png" 
+                alt="wallpapering" 
+                class="lazy"
+              />
             </div>
             <p>Tapetowanie</p>
           </div>
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/filling.png" alt="filling" />
+              <img 
+                data-src="./src/images/ico/filling.png" 
+                alt="filling" 
+                class="lazy"
+              />
             </div>
             <p>Szpachlowanie</p>
           </div>
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/stonework.png" alt="stonework" />
+              <img 
+                data-src="./src/images/ico/stonework.png" 
+                alt="stonework"
+                class="lazy"
+              />
             </div>
             <p>Prace kamieniarskie</p>
           </div>
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/tiling.png" alt="tiling" />
+              <img 
+                data-src="./src/images/ico/tiling.png" 
+                alt="tiling" 
+                class="lazy"
+              />
             </div>
             <p>Prace glazurnicze</p>
           </div>
           <div class="service">
             <div class="service-img">
               <img
-                src="./src/images/ico/plasterboards.png"
+                data-src="./src/images/ico/plasterboards.png"
                 alt="plasterboards"
+                class="lazy"
               />
             </div>
             <p>Zabudowy z płyt kartonowo-gipsowych</p>
           </div>
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/panels.png" alt="panels" />
+              <img 
+                data-src="./src/images/ico/panels.png"
+                alt="panels" 
+                class="lazy"
+              />
             </div>
             <p>Montaż paneli podłogowych</p>
           </div>
           <div class="service">
             <div class="service-img">
-              <img src="./src/images/ico/ceiling.png" alt="ceiling" />
+              <img 
+                data-src="./src/images/ico/ceiling.png" 
+                alt="ceiling" 
+                class="lazy"
+              />
             </div>
             <p>Montaż sufitów podwieszanych</p>
           </div>
         </div>
-        <div  id="project__direction"></div>
+        <div id="project__direction"></div>
       </section>
     </div>
 
@@ -183,49 +219,55 @@
       <div class="gallery">
         <div class="gallery-img img1">
           <img
-            src="./src/images/gallery/previews/1.jpg"
+            data-src="./src/images/gallery/previews/1.jpg"
             alt=""
             data-original="1"
+            class="lazy"
           />
           <i class="fas fa-search"></i>
         </div>
         <div class="gallery-img img2">
           <img
-            src="./src/images/gallery/previews/2.jpg"
+            data-src="./src/images/gallery/previews/2.jpg"
             alt=""
             data-original="2"
+            class="lazy"
           />
           <i class="fas fa-search"></i>
         </div>
         <div class="gallery-img img3">
           <img
-            src="./src/images/gallery/previews/3.jpg"
+            data-src="./src/images/gallery/previews/3.jpg"
             alt=""
             data-original="3"
+            class="lazy"
           />
           <i class="fas fa-search"></i>
         </div>
         <div class="gallery-img img4">
           <img
-            src="./src/images/gallery/previews/2.jpg"
+            data-src="./src/images/gallery/previews/2.jpg"
             alt=""
             data-original="4"
+            class="lazy"
           />
           <i class="fas fa-search"></i>
         </div>
         <div class="gallery-img img5">
           <img
-            src="./src/images/gallery/previews/1.jpg"
+            data-src="./src/images/gallery/previews/1.jpg"
             alt=""
             data-original="5"
+            class="lazy"
           />
           <i class="fas fa-search"></i>
         </div>
         <div class="gallery-img img6">
           <img
-            src="./src/images/gallery/previews/2.jpg"
+            data-src="./src/images/gallery/previews/2.jpg"
             alt=""
             data-original="6"
+            class="lazy"
           />
           <i class="fas fa-search"></i>
         </div>
@@ -246,7 +288,11 @@
 
     <section id="footer">
       <div class="footer__topbar">
-        <img src="src/images/footer-img.png" class="footer__photo"/>
+        <img 
+          data-src="src/images/footer-img.png" 
+          class="footer__photo lazy"
+          alt=""
+        />
         <div class="footer__line"></div>
         <div class="footer__topbar-text">
           <span>Masz pytania!</span>
@@ -265,7 +311,8 @@
             <div class="footer__contact-text">
               <span>Odwiedź nas</span>
               <span class="footer__contact-text--link">
-                www.instagram.com/kacpersuchora</span>
+                www.instagram.com/kacpersuchora
+              </span>
             </div>
           </div>
 
@@ -308,7 +355,11 @@
           <i class="fas fa-times"></i>
         </button>
         <div class="contact__image">
-          <img src="./src/images/logo.png">
+          <img 
+            data-src="./src/images/logo.png"
+            class="lazy"
+            alt=""
+          >
         </div>
         <form class="contact__form">
           <h1 class="contact__header">Napisz do nas</h1>
@@ -325,6 +376,7 @@
       <i class="fas fa-arrow-circle-up"></i>
     </a>
 
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
     <script src="./src/js/app.js"></script>
   </body>
