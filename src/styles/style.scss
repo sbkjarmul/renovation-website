@@ -208,7 +208,7 @@ section {
         width: 100%;
         text-transform: uppercase;
         font-size: 1rem;
-        transition: all 0.5s ease;
+        transition: all 0.2s ease;
         margin: 1rem;
         z-index: 2;
   
@@ -216,12 +216,12 @@ section {
           box-sizing: border-box;
           text-decoration: none;
           color: white;
-          transition: all 0.5s ease;
+          transition: all 0.2s ease;
           letter-spacing: 1px;
         }
   
         a:hover {
-          font-weight: 700;
+          font-weight: 600;
           transform: scale(1.1);
         }
   
@@ -243,7 +243,7 @@ section {
     left: 0;
     right: 0;
     color: white;
-    min-height: 12.5vh;
+    min-height: 8vh;
     background: inherit;
     background-attachment: fixed;
     overflow: hidden;
@@ -625,7 +625,7 @@ section {
         &:hover {
           transform-origin: center;
           transform: scale(1.2);
-          filter: brightness(10%);
+          filter: brightness(15%);
         }
 
         &:hover ~ i {
